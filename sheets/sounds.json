@@ -1,0 +1,969 @@
+{
+  "sheet": "sounds",
+  "about": "Gears of War: E-Day sounds, played from the player's install: each row is a Wwise event (path under WwiseAudio/Events/Fairlight_Events/); its media are read and played as recorded.",
+  "columns": {
+    "id": "key",
+    "event": "Wwise event (no .uasset)",
+    "owner": "what makes the sound (weapons.id, enemies.id, or music | ambience | hero | ui | world)",
+    "when": "fire | death | spawn | reload (reload starts) | reload-done (normal or good reload ends) | reload-perfect (perfect Active Reload) | reload-jam (missed Active Reload) | any other cue the game asks for (music: menu, siege, boss...; hero: step, swing, hit, evade, flap, levelup; world: ehole, thunder, fire, rain, explosion; ui: click, victory, defeat)",
+    "pick": "shot (a full shot plus a low thump layer) | any (one recording at random)",
+    "volume": "0-1",
+    "maxLength": "seconds kept from each recording, with a short fade-out (0 = whole recording)"
+  },
+  "rows": [
+    {
+      "id": "lancer-fire",
+      "event": "Weapons/lancer_mk1/Play_WEP_Lancer_MK1_Fire",
+      "owner": "lancer",
+      "when": "fire",
+      "pick": "shot",
+      "volume": 0.55,
+      "maxLength": 0
+    },
+    {
+      "id": "gnasher-fire",
+      "event": "Weapons/gnasher/Play_WEP_Gnasher_Fire",
+      "owner": "gnasher",
+      "when": "fire",
+      "pick": "shot",
+      "volume": 0.7,
+      "maxLength": 0
+    },
+    {
+      "id": "snub-fire",
+      "event": "Weapons/Snub/Play_WEP_Snub_Fire",
+      "owner": "snub",
+      "when": "fire",
+      "pick": "shot",
+      "volume": 0.6,
+      "maxLength": 0
+    },
+    {
+      "id": "longshot-fire",
+      "event": "Weapons/Longshot/Play_WEP_Longshot_Fire",
+      "owner": "longshot",
+      "when": "fire",
+      "pick": "shot",
+      "volume": 0.75,
+      "maxLength": 0
+    },
+    {
+      "id": "hammerburst-fire",
+      "event": "Weapons/HammerBurst/Play_WEP_HammerBurst_Fire_ENMY",
+      "owner": "drone",
+      "when": "fire",
+      "pick": "shot",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "boomshot-fire",
+      "event": "Weapons/Boomshot/Play_WEP_Boomshot_Fire_ENMY",
+      "owner": "boomer",
+      "when": "fire",
+      "pick": "shot",
+      "volume": 0.7,
+      "maxLength": 0
+    },
+    {
+      "id": "wretch-spawn",
+      "event": "Ambience_Events/Ambience_Emitters_Featured/Play_EMIT_Feat_Wretch_SpawnScream_1",
+      "owner": "wretch",
+      "when": "spawn",
+      "pick": "any",
+      "volume": 0.45,
+      "maxLength": 2.4
+    },
+    {
+      "id": "drone-death",
+      "event": "Characters/Executions/Play_EXEC_EFF_LocustDrone_DeathScreamTorturous_NPI",
+      "owner": "drone",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 1.8
+    },
+    {
+      "id": "boomer-death",
+      "event": "Characters/Executions/Play_EXEC_EFF_LocustBoomer_DeathScreamTorturous_NPI",
+      "owner": "boomer",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0
+    },
+    {
+      "id": "lancer-reload",
+      "event": "Weapons/lancer_mk1/Play_WEP_Lancer_MK1_Reload_ClipEject",
+      "owner": "lancer",
+      "when": "reload",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "lancer-reload-done",
+      "event": "Weapons/lancer_mk1/Play_WEP_Lancer_MK1_Reload_ClipInsert",
+      "owner": "lancer",
+      "when": "reload-done",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "lancer-reload-perfect",
+      "event": "Weapons/lancer_mk1/Play_WEP_Lancer_MK1_Reload_Hit",
+      "owner": "lancer",
+      "when": "reload-perfect",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 0
+    },
+    {
+      "id": "lancer-reload-jam",
+      "event": "Weapons/lancer_mk1/Play_WEP_Lancer_MK1_Reload_Jammed",
+      "owner": "lancer",
+      "when": "reload-jam",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0
+    },
+    {
+      "id": "gnasher-reload",
+      "event": "Weapons/gnasher/Play_WEP_Gnasher_Reload_Open",
+      "owner": "gnasher",
+      "when": "reload",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "gnasher-reload-done",
+      "event": "Weapons/gnasher/Play_WEP_Gnasher_Reload_Close",
+      "owner": "gnasher",
+      "when": "reload-done",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "gnasher-reload-perfect",
+      "event": "Weapons/gnasher/Play_WEP_Gnasher_Reload_PerfectReload",
+      "owner": "gnasher",
+      "when": "reload-perfect",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 0
+    },
+    {
+      "id": "gnasher-reload-jam",
+      "event": "Weapons/gnasher/Play_WEP_Gnasher_Reload_Jammed",
+      "owner": "gnasher",
+      "when": "reload-jam",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0
+    },
+    {
+      "id": "snub-reload",
+      "event": "Weapons/Snub/Play_WEP_Snub_Reload_ClipEject",
+      "owner": "snub",
+      "when": "reload",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "snub-reload-done",
+      "event": "Weapons/Snub/Play_WEP_Snub_Reload_ClipInsert",
+      "owner": "snub",
+      "when": "reload-done",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "snub-reload-perfect",
+      "event": "Weapons/Snub/Play_WEP_Snub_Reload_Hit",
+      "owner": "snub",
+      "when": "reload-perfect",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 0
+    },
+    {
+      "id": "snub-reload-jam",
+      "event": "Weapons/Snub/Play_WEP_Snub_Reload_Jammed",
+      "owner": "snub",
+      "when": "reload-jam",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0
+    },
+    {
+      "id": "longshot-reload",
+      "event": "Weapons/Longshot/Play_WEP_Longshot_Reload_BoltOpen",
+      "owner": "longshot",
+      "when": "reload",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "longshot-reload-done",
+      "event": "Weapons/Longshot/Play_WEP_Longshot_Reload_BoltClose",
+      "owner": "longshot",
+      "when": "reload-done",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0
+    },
+    {
+      "id": "longshot-reload-perfect",
+      "event": "Weapons/Longshot/Play_WEP_Longshot_Reload_Hit",
+      "owner": "longshot",
+      "when": "reload-perfect",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 0
+    },
+    {
+      "id": "longshot-reload-jam",
+      "event": "Weapons/Longshot/Play_WEP_Longshot_Reload_Jammed",
+      "owner": "longshot",
+      "when": "reload-jam",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0
+    },
+    {
+      "id": "music-menu",
+      "event": "Music/Menu/Play_MUS_Fairlight_Menu",
+      "owner": "music",
+      "when": "menu",
+      "pick": "any",
+      "volume": 0.35,
+      "maxLength": 150
+    },
+    {
+      "id": "music-siege",
+      "event": "Music/Siege/Play_MUS_Fairlight_Siege",
+      "owner": "music",
+      "when": "siege",
+      "pick": "any",
+      "volume": 0.3,
+      "maxLength": 150
+    },
+    {
+      "id": "music-act1",
+      "event": "Music/Campaign/Play_MUS_Campaign_Act1",
+      "owner": "music",
+      "when": "fight",
+      "pick": "any",
+      "volume": 0.3,
+      "maxLength": 150
+    },
+    {
+      "id": "music-boss",
+      "event": "Music/Campaign/Play_MUS_Campaign_Act3",
+      "owner": "music",
+      "when": "boss",
+      "pick": "any",
+      "volume": 0.35,
+      "maxLength": 150
+    },
+    {
+      "id": "sting-boss",
+      "event": "Music/Stingers/A1C0300/Play_MUS_STG_A1C0310_Tunnels_CorpserReveal",
+      "owner": "music",
+      "when": "boss-sting",
+      "pick": "any",
+      "volume": 0.45,
+      "maxLength": 0.0
+    },
+    {
+      "id": "amb-city",
+      "event": "Ambience_Events/Ambience_Beds/Ambience_Beds_Exterior/Play_AMBZ_Ext_City_VTAR_Large_CityInPain_Combo",
+      "owner": "ambience",
+      "when": "city",
+      "pick": "any",
+      "volume": 0.35,
+      "maxLength": 60
+    },
+    {
+      "id": "amb-battle",
+      "event": "Ambience_Events/Ambience_Beds/Ambience_Beds_Exterior/Play_AMBZ_Ext_City_VTAR_Large_CityInPain_Rumble",
+      "owner": "ambience",
+      "when": "battle",
+      "pick": "any",
+      "volume": 0.22,
+      "maxLength": 60
+    },
+    {
+      "id": "amb-rain",
+      "event": "Ambience_Events/Ambience_Beds/Ambiance_Probes_Rain/Play_AMB_Rain_Probes",
+      "owner": "ambience",
+      "when": "rain",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 60
+    },
+    {
+      "id": "world-fire",
+      "event": "Characters/Gore/Play_Gore_StatusEffects_Fire_Loop_ENMY",
+      "owner": "world",
+      "when": "fire",
+      "pick": "any",
+      "volume": 0.25,
+      "maxLength": 4
+    },
+    {
+      "id": "world-ehole",
+      "event": "Ambience_Events/Ambience_Emitters/EMIT_Mono/Play_EMIT_Rumble_DistantHugeEholeBreakVocals",
+      "owner": "world",
+      "when": "ehole",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 3
+    },
+    {
+      "id": "world-thunder",
+      "event": "Ambience_Events/Ambience_Emitters/EMIT_Mono/Play_EMIT_Thunder_Crack_RollingDistantThunder",
+      "owner": "world",
+      "when": "thunder",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0.0
+    },
+    {
+      "id": "world-explosion",
+      "event": "Ambience_Events/Ambience_Emitters_Triggered/Play_AET_Explosion_Large_DistanceFuelBomb",
+      "owner": "world",
+      "when": "explosion",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 0.0
+    },
+    {
+      "id": "hero-step",
+      "event": "Characters/FootSteps/Play_FS_Boot_Civilian_Step_SQUD",
+      "owner": "hero",
+      "when": "step",
+      "pick": "any",
+      "volume": 0.25,
+      "maxLength": 0.6
+    },
+    {
+      "id": "hero-land",
+      "event": "Characters/FootSteps/Play_FS_Boot_Civilian_Land_SQUD",
+      "owner": "hero",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.45,
+      "maxLength": 1
+    },
+    {
+      "id": "hero-swing",
+      "event": "Ambience_Events/Ambience_Emitters_Triggered/Play_AET_Whoosh_Large",
+      "owner": "hero",
+      "when": "swing",
+      "pick": "any",
+      "volume": 0.25,
+      "maxLength": 0.6
+    },
+    {
+      "id": "hero-hit",
+      "event": "Characters/Executions/Play_EXEC_Gore_Wretch_MeleeImpact_NPI",
+      "owner": "hero",
+      "when": "hit",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 0.8
+    },
+    {
+      "id": "hero-evade",
+      "event": "Characters/BodyFoley/Ticker/Play_BF_Ticker_KnockbackWhoosh",
+      "owner": "hero",
+      "when": "evade",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 0.8
+    },
+    {
+      "id": "hero-flap",
+      "event": "Ambience_Events/Ambience_Emitters_Triggered/Play_AET_Animal_Bird_WingFlaps_FlyAway",
+      "owner": "hero",
+      "when": "flap",
+      "pick": "any",
+      "volume": 0.35,
+      "maxLength": 1.2
+    },
+    {
+      "id": "hero-heal",
+      "event": "AbilitiesPerksBuffs/Play_Ability_SpecialGear_Stim_PartialHeal",
+      "owner": "hero",
+      "when": "heal",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 0.0
+    },
+    {
+      "id": "hero-levelup",
+      "event": "UI/MP/Siege/Play_UI_Siege_Post_Match_Player_LevelUp",
+      "owner": "hero",
+      "when": "levelup",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0.0
+    },
+    {
+      "id": "hero-chainsaw",
+      "event": "Characters/Executions/Play_EXEC_WEP_Chainsaw_Rev_Medium_NPI",
+      "owner": "hero",
+      "when": "chainsaw",
+      "pick": "any",
+      "volume": 0.35,
+      "maxLength": 1.2
+    },
+    {
+      "id": "ticker-beep",
+      "event": "Characters/BodyFoley/Ticker/Play_BF_Ticker_Ticks_Fast_ENMY",
+      "owner": "ticker",
+      "when": "beep",
+      "pick": "any",
+      "volume": 0.35,
+      "maxLength": 1.5
+    },
+    {
+      "id": "reaver-scream",
+      "event": "Ambience_Events/Ambience_Emitters_Featured/Play_EMIT_Feat_AmbientReaver_Scream01_Mono",
+      "owner": "reaver",
+      "when": "spawn",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0.0
+    },
+    {
+      "id": "brumak-vox",
+      "event": "Ambience_Events/Ambience_Emitters_Featured/Play_EMIT_Feat_Creature_BrumakVox_DistantVerbDelay",
+      "owner": "brumak",
+      "when": "spawn",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0.0
+    },
+    {
+      "id": "corpser-emerge",
+      "event": "Characters/BodyFoley/Corpser/Play_BF_Corpser_ClawAttack_Emerge_Tell_ENMY",
+      "owner": "corpser",
+      "when": "spawn",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0.0
+    },
+    {
+      "id": "ui-click",
+      "event": "UI/MainMenu/Play_UI_MainMenu_Navigate_Cycle_Small_Next",
+      "owner": "ui",
+      "when": "click",
+      "pick": "any",
+      "volume": 0.4,
+      "maxLength": 0.0
+    },
+    {
+      "id": "ui-victory",
+      "event": "UI/HUD/Play_UI_Campaign_ObjectiveCompleted",
+      "owner": "ui",
+      "when": "victory",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 0.0
+    },
+    {
+      "id": "ui-defeat",
+      "event": "Ambience_Events/Ambience_Emitters/EMIT_Stereo/Play_EMIT_Rumble_Building_Shaking_Burst_MidrangeMetalThunderous_ST",
+      "owner": "ui",
+      "when": "defeat",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0.0
+    },
+    {
+      "id": "ui-reward",
+      "event": "UI/Forge/Play_UI_Forge_Rewards_Claimed",
+      "owner": "ui",
+      "when": "reward",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 0.0
+    },
+    {
+      "id": "amb-wind",
+      "event": "Ambience_Events/Ambience_Beds/Ambience_Beds_Exterior/2d/Play_AMB_Ext_Desert_Wind_Sand_Calm_DryHollowToneMid_01_ST",
+      "owner": "ambience",
+      "when": "wind",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 60
+    },
+    {
+      "id": "boomer-shout",
+      "event": "Speech/Efforts/LocustBoomer/Play_EFF_LocustBoomer_AttackLarge_ENMY",
+      "owner": "boomer",
+      "when": "shout",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-marcus-attack",
+      "event": "Speech/Efforts/Marcus/Play_EFF_Marcus_AttackLarge",
+      "owner": "voice-marcus",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-marcus-pain",
+      "event": "Speech/Efforts/Marcus/Play_EFF_Marcus_PainMedium",
+      "owner": "voice-marcus",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-marcus-death",
+      "event": "Speech/Efforts/Marcus/Play_EFF_Marcus_DeathScreamDefault",
+      "owner": "voice-marcus",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-marcus-jump",
+      "event": "Speech/Efforts/Marcus/Play_EFF_Marcus_JumpHeavy",
+      "owner": "voice-marcus",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-marcus-land",
+      "event": "Speech/Efforts/Marcus/Play_EFF_Marcus_LandHeavy",
+      "owner": "voice-marcus",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-marcus-roll",
+      "event": "Speech/Efforts/Marcus/Play_EFF_Marcus_Roll",
+      "owner": "voice-marcus",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-carmine-attack",
+      "event": "Speech/Efforts/Carmine/Play_EFF_Carmine_AttackLarge",
+      "owner": "voice-carmine",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-carmine-pain",
+      "event": "Speech/Efforts/Carmine/Play_EFF_Carmine_PainMedium",
+      "owner": "voice-carmine",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-carmine-death",
+      "event": "Speech/Efforts/Carmine/Play_EFF_Carmine_DeathScreamDefault",
+      "owner": "voice-carmine",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-carmine-jump",
+      "event": "Speech/Efforts/Carmine/Play_EFF_Carmine_JumpHeavy",
+      "owner": "voice-carmine",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-carmine-land",
+      "event": "Speech/Efforts/Carmine/Play_EFF_Carmine_LandHeavy",
+      "owner": "voice-carmine",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-carmine-roll",
+      "event": "Speech/Efforts/Carmine/Play_EFF_Carmine_Roll",
+      "owner": "voice-carmine",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-mags-attack",
+      "event": "Speech/Efforts/Mags/Play_EFF_Mags_AttackLarge",
+      "owner": "voice-mags",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-mags-pain",
+      "event": "Speech/Efforts/Mags/Play_EFF_Mags_PainMedium",
+      "owner": "voice-mags",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-mags-death",
+      "event": "Speech/Efforts/Mags/Play_EFF_Mags_DeathScreamDefault",
+      "owner": "voice-mags",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-mags-jump",
+      "event": "Speech/Efforts/Mags/Play_EFF_Mags_JumpHeavy",
+      "owner": "voice-mags",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-mags-land",
+      "event": "Speech/Efforts/Mags/Play_EFF_Mags_LandHeavy",
+      "owner": "voice-mags",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-mags-roll",
+      "event": "Speech/Efforts/Mags/Play_EFF_Mags_Roll",
+      "owner": "voice-mags",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-lucas-attack",
+      "event": "Speech/Efforts/Lucas/Play_EFF_Lucas_AttackLarge",
+      "owner": "voice-lucas",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-lucas-pain",
+      "event": "Speech/Efforts/Lucas/Play_EFF_Lucas_PainMedium",
+      "owner": "voice-lucas",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-lucas-death",
+      "event": "Speech/Efforts/Lucas/Play_EFF_Lucas_DeathScreamDefault",
+      "owner": "voice-lucas",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-lucas-jump",
+      "event": "Speech/Efforts/Lucas/Play_EFF_Lucas_JumpHeavy",
+      "owner": "voice-lucas",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-lucas-land",
+      "event": "Speech/Efforts/Lucas/Play_EFF_Lucas_LandHeavy",
+      "owner": "voice-lucas",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-lucas-roll",
+      "event": "Speech/Efforts/Lucas/Play_EFF_Lucas_Roll",
+      "owner": "voice-lucas",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-gill-attack",
+      "event": "Speech/Efforts/MajorGill/Play_EFF_MajorGill_AttackLarge",
+      "owner": "voice-gill",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-gill-pain",
+      "event": "Speech/Efforts/MajorGill/Play_EFF_MajorGill_PainMedium",
+      "owner": "voice-gill",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-gill-death",
+      "event": "Speech/Efforts/MajorGill/Play_EFF_MajorGill_DeathScreamDefault",
+      "owner": "voice-gill",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-gill-jump",
+      "event": "Speech/Efforts/MajorGill/Play_EFF_MajorGill_JumpHeavy",
+      "owner": "voice-gill",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-gill-land",
+      "event": "Speech/Efforts/MajorGill/Play_EFF_MajorGill_LandHeavy",
+      "owner": "voice-gill",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-gill-roll",
+      "event": "Speech/Efforts/MajorGill/Play_EFF_MajorGill_Roll",
+      "owner": "voice-gill",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-dom-attack",
+      "event": "Speech/Efforts/Dom/Play_EFF_Dom_AttackLarge",
+      "owner": "voice-dom",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-dom-pain",
+      "event": "Speech/Efforts/Dom/Play_EFF_Dom_PainMedium",
+      "owner": "voice-dom",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-dom-death",
+      "event": "Speech/Efforts/Dom/Play_EFF_Dom_DeathScreamDefault",
+      "owner": "voice-dom",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-dom-jump",
+      "event": "Speech/Efforts/Dom/Play_EFF_Dom_JumpHeavy",
+      "owner": "voice-dom",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-dom-land",
+      "event": "Speech/Efforts/Dom/Play_EFF_Dom_LandHeavy",
+      "owner": "voice-dom",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-dom-roll",
+      "event": "Speech/Efforts/Dom/Play_EFF_Dom_Roll",
+      "owner": "voice-dom",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-medic-attack",
+      "event": "Speech/Efforts/MedicMorida/Play_EFF_MedicMorida_AttackLarge",
+      "owner": "voice-medic",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-medic-pain",
+      "event": "Speech/Efforts/MedicMorida/Play_EFF_MedicMorida_PainMedium",
+      "owner": "voice-medic",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-medic-death",
+      "event": "Speech/Efforts/MedicMorida/Play_EFF_MedicMorida_DeathScreamDefault",
+      "owner": "voice-medic",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-medic-jump",
+      "event": "Speech/Efforts/MedicMorida/Play_EFF_MedicMorida_JumpHeavy",
+      "owner": "voice-medic",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-medic-land",
+      "event": "Speech/Efforts/MedicMorida/Play_EFF_MedicMorida_LandHeavy",
+      "owner": "voice-medic",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-medic-roll",
+      "event": "Speech/Efforts/MedicMorida/Play_EFF_MedicMorida_Roll",
+      "owner": "voice-medic",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-tai-attack",
+      "event": "Speech/Efforts/Tai/Play_EFF_Tai_AttackLarge",
+      "owner": "voice-tai",
+      "when": "attack",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-tai-pain",
+      "event": "Speech/Efforts/Tai/Play_EFF_Tai_PainMedium",
+      "owner": "voice-tai",
+      "when": "pain",
+      "pick": "any",
+      "volume": 0.6,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-tai-death",
+      "event": "Speech/Efforts/Tai/Play_EFF_Tai_DeathScreamDefault",
+      "owner": "voice-tai",
+      "when": "death",
+      "pick": "any",
+      "volume": 0.7,
+      "maxLength": 3
+    },
+    {
+      "id": "vo-tai-jump",
+      "event": "Speech/Efforts/Tai/Play_EFF_Tai_JumpHeavy",
+      "owner": "voice-tai",
+      "when": "jump",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-tai-land",
+      "event": "Speech/Efforts/Tai/Play_EFF_Tai_LandHeavy",
+      "owner": "voice-tai",
+      "when": "land",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-tai-roll",
+      "event": "Speech/Efforts/Tai/Play_EFF_Tai_Roll",
+      "owner": "voice-tai",
+      "when": "roll",
+      "pick": "any",
+      "volume": 0.5,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-drone-taunt",
+      "event": "Speech/Efforts/LocustDrone/Play_EFF_LocustDrone_AttackLarge_ENMY",
+      "owner": "drone",
+      "when": "shout",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    },
+    {
+      "id": "vo-rusher-taunt",
+      "event": "Speech/Efforts/ScorchedRusher/Play_EFF_ScorchedRusher_AttackLarge_ENMY",
+      "owner": "rusher",
+      "when": "shout",
+      "pick": "any",
+      "volume": 0.55,
+      "maxLength": 2.5
+    }
+  ]
+}

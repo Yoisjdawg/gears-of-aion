@@ -1,0 +1,9 @@
+# build output
+bin/
+obj/
+build/
+Playtest/
+x/
+# media: big clips and working shots stay local; README screenshots live in docs/
+media/
+*.pdb

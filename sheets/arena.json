@@ -1,0 +1,789 @@
+{
+  "sheet": "arena",
+  "about": "The arena, built from Gears of War: E-Day environment pieces read from the player's install (paths under FairlightConcept/Content/Fairlight/Environments/). Positions are ours. Game space: metres, +z is away from the player's start, yaw in degrees. Rows with role street are only used in the Gears city: each is scattered count times over open, reachable street spots (x, z and yaw are ignored), with collision.",
+  "columns": {
+    "id": "key",
+    "mesh": "Gears static mesh (path under Environments/, no .uasset)",
+    "x": "centre x in metres",
+    "z": "centre z in metres",
+    "yaw": "turn in degrees (0, 90, 180 or 270 keep collision exact)",
+    "role": "cover (blocks movement and shots) | wall (drawn only; the arena edge blocks) | backdrop (drawn only, outside the arena) | street (scattered in the city, blocks)",
+    "count": "how many to scatter (street rows; 1 for the others)"
+  },
+  "rows": [
+    {
+      "id": "rampart-n1",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02",
+      "x": -28,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n2",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v07_01d",
+      "x": -21,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n3",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v03",
+      "x": -14,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n4",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v01_window_01a",
+      "x": -7,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "fort-gate",
+      "mesh": "Sets/Architecture/Fort/Mesh_S2/fort_s02_gate_v01_01a",
+      "x": 0,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n6",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v06",
+      "x": 7,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n7",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02_destroyed_01a",
+      "x": 14,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n8",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v08_door_01a",
+      "x": 21,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-n9",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02",
+      "x": 28,
+      "z": 31.5,
+      "yaw": 0,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s1",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v07_01d",
+      "x": -28,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s2",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v03",
+      "x": -21,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s3",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v01_window_01a",
+      "x": -14,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s4",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v06",
+      "x": -7,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s5",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02_destroyed_01a",
+      "x": 0,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s6",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v08_door_01a",
+      "x": 7,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s7",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02",
+      "x": 14,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s8",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v07_01d",
+      "x": 21,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-s9",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v03",
+      "x": 28,
+      "z": -31.5,
+      "yaw": 180,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e1",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v01_window_01a",
+      "x": 31.5,
+      "z": -28,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e2",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v06",
+      "x": 31.5,
+      "z": -21,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e3",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02_destroyed_01a",
+      "x": 31.5,
+      "z": -14,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e4",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v08_door_01a",
+      "x": 31.5,
+      "z": -7,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e5",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02",
+      "x": 31.5,
+      "z": 0,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e6",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v07_01d",
+      "x": 31.5,
+      "z": 7,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e7",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v03",
+      "x": 31.5,
+      "z": 14,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e8",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v01_window_01a",
+      "x": 31.5,
+      "z": 21,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-e9",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v06",
+      "x": 31.5,
+      "z": 28,
+      "yaw": 90,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w1",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02_destroyed_01a",
+      "x": -31.5,
+      "z": -28,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w2",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v08_door_01a",
+      "x": -31.5,
+      "z": -21,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w3",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02",
+      "x": -31.5,
+      "z": -14,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w4",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v07_01d",
+      "x": -31.5,
+      "z": -7,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w5",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v03",
+      "x": -31.5,
+      "z": 0,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w6",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v01_window_01a",
+      "x": -31.5,
+      "z": 7,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w7",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v06",
+      "x": -31.5,
+      "z": 14,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w8",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v02_destroyed_01a",
+      "x": -31.5,
+      "z": 21,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "rampart-w9",
+      "mesh": "Sets/Architecture/Fort/Mesh/fort_s01_wall_v08_door_01a",
+      "x": -31.5,
+      "z": 28,
+      "yaw": 270,
+      "role": "wall",
+      "count": 1
+    },
+    {
+      "id": "armadillo",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_GP_Armadillo_Destroyed_Burnt_01a",
+      "x": -11,
+      "z": -4,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "police-car",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_CarLarge03Police_Destroyed_Burnt_01a",
+      "x": 13,
+      "z": -11,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "military-truck",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_GP_TruckMilitary_Destroyed_Burnt_01a",
+      "x": 2,
+      "z": 13,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "bus",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/sm_merged_gp_buscity_destroyed_burnt_02a",
+      "x": -19,
+      "z": 14,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "semi",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_SemiTruck_Destroyed_Burnt_01a",
+      "x": 18,
+      "z": 17,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-a",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v05_01a",
+      "x": -5,
+      "z": -16,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-b",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v02_03a",
+      "x": 6,
+      "z": -16,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-c",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v06_01a",
+      "x": 0,
+      "z": -4,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-d",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v07_01a",
+      "x": -15,
+      "z": -15,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-e",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v07_01b",
+      "x": 16,
+      "z": 2,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-f",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v01_01a",
+      "x": -7,
+      "z": 5,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-g",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v03_01a",
+      "x": 8,
+      "z": 4,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-h",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v04_01a",
+      "x": -22,
+      "z": -2,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-i",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v02_02a",
+      "x": 23,
+      "z": -3,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-j",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v05_01b",
+      "x": -8,
+      "z": 21,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "cover-k",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v03_03a",
+      "x": 10,
+      "z": 23,
+      "yaw": 90,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "pillar-a",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v01_02a",
+      "x": -3,
+      "z": 9,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "pillar-b",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v03_02a",
+      "x": 12,
+      "z": -2,
+      "yaw": 0,
+      "role": "cover",
+      "count": 1
+    },
+    {
+      "id": "gate-tower",
+      "mesh": "Sets/Architecture/Fort/Mesh_S2/fort_s02_gate_v01_tower_02a",
+      "x": 0,
+      "z": 45,
+      "yaw": 0,
+      "role": "backdrop",
+      "count": 1
+    },
+    {
+      "id": "st-armadillo",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_GP_Armadillo_Destroyed_Burnt_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 1
+    },
+    {
+      "id": "st-police-car",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_CarLarge03Police_Destroyed_Burnt_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-military-truck",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_GP_TruckMilitary_Destroyed_Burnt_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 1
+    },
+    {
+      "id": "st-semi",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/SM_MERGED_SemiTruck_Destroyed_Burnt_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 1
+    },
+    {
+      "id": "st-cog-low",
+      "mesh": "Props/Global/Mesh/cog_barricades_cover_low_3x",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 6
+    },
+    {
+      "id": "st-cog-high",
+      "mesh": "Props/Global/Mesh/cog_barricades_cover_high_3x",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-barricade-a",
+      "mesh": "Props/Global/Mesh/barricade_v01_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 4
+    },
+    {
+      "id": "st-barricade-b",
+      "mesh": "Props/Global/Mesh/barricade_v02_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 4
+    },
+    {
+      "id": "st-rubble-a",
+      "mesh": "Sets/Debris/Mesh/Merged/SM_MERGED_rubble_pile_brick_v01_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 5
+    },
+    {
+      "id": "st-rubble-b",
+      "mesh": "Sets/Debris/Mesh/Merged/SM_MERGED_rubble_pile_brick_v01_02a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 5
+    },
+    {
+      "id": "st-rubble-c",
+      "mesh": "Sets/Debris/Mesh/Merged/SM_MERGED_rubble_pile_brick_v01_03a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 4
+    },
+    {
+      "id": "st-rubble-d",
+      "mesh": "Sets/Debris/Mesh/Merged/SM_MERGED_rubble_pile_generic_v01_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 5
+    },
+    {
+      "id": "st-drydock",
+      "mesh": "Props/Cover_Props/Mesh/dry_dock_cover_v05_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-bus",
+      "mesh": "Props/Destroyed_Vehicles/Mesh/Merged/sm_merged_gp_buscity_destroyed_burnt_02a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-sandbag-stack",
+      "mesh": "Props/Global/Mesh/military_sandbag_sack_stack_v01_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 4
+    },
+    {
+      "id": "st-sandbag-pile",
+      "mesh": "Props/Global/Mesh/military_sandbag_sacks_pile_v02_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-barbed",
+      "mesh": "Props/Global/Mesh/fence_barbedwire_v01_panel_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 4
+    },
+    {
+      "id": "st-concrete-barrier",
+      "mesh": "Props/Global/Mesh/concrete_barrier_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 5
+    },
+    {
+      "id": "st-vehicle-debris",
+      "mesh": "Sets/Debris/Mesh/vehicle_damaged_debris_pile_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-debris",
+      "mesh": "Sets/Debris/Mesh/debris_pile_generic_v01_03a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-concrete-rubble",
+      "mesh": "Sets/Debris_megascans/Mesh/concrete_rubble_pile_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-bus-stop",
+      "mesh": "Sets/Infrastructure/Mesh/bus_stop_v01_destroyed_chunk_03a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-locust-crate",
+      "mesh": "Props/Global/Mesh/military_crate_v03_locust_wood_02a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-hotdog-cart",
+      "mesh": "Props/Global/Mesh/hot_dog_cart_v01_broken_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-newspaper-box",
+      "mesh": "Props/Global/Mesh/newspaper_box_v01_broken_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-newspaper-box-2",
+      "mesh": "Props/Global/Mesh/newspaper_box_v02_broken_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-trashcan",
+      "mesh": "Props/Historic_Props/Mesh/historic_trashcan_v01_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 3
+    },
+    {
+      "id": "st-dumpster",
+      "mesh": "Props/Global/Mesh/dumpster_small_v01_bin_03a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-bench",
+      "mesh": "Props/Global/Mesh/bench_v01_01a_damaged_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-mailbox",
+      "mesh": "Props/Global/Mesh/mailbox_v01_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 2
+    },
+    {
+      "id": "st-traffic-barrel",
+      "mesh": "Props/Global/Mesh/construction_barrel_v01_traffic_01a",
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "role": "street",
+      "count": 4
+    }
+  ]
+}

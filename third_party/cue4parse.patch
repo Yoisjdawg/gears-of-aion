@@ -1,0 +1,224 @@
+diff --git a/CUE4Parse/CUE4Parse.csproj b/CUE4Parse/CUE4Parse.csproj
+index 3ad205f..6904d47 100644
+--- a/CUE4Parse/CUE4Parse.csproj
++++ b/CUE4Parse/CUE4Parse.csproj
+@@ -1,4 +1,4 @@
+-﻿<Project Sdk="Microsoft.NET.Sdk">
++<Project Sdk="Microsoft.NET.Sdk">
+ 
+   <PropertyGroup>
+     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+@@ -31,17 +31,14 @@
+ 
+   <ItemGroup>
+     <None Remove="Resources\ACE7Key.bin" />
+-    <EmbeddedResource Include="Resources\ACE7Key.bin" />
+     <None Remove="Resources\PUBGNameHashMap.json" />
+     <EmbeddedResource Include="Resources\PUBGNameHashMap.json" />
+     <None Remove="Resources\BL4SoundTagsMap.json" />
+     <EmbeddedResource Include="Resources\BL4SoundTagsMap.json" />
+     <None Remove="Resources\ProSpiDecryptor.dll" />
+-    <EmbeddedResource Include="Resources\ProSpiDecryptor.dll.gz" />
+     <None Remove="Resources\ShaderHashedNames.json" />
+     <EmbeddedResource Include="Resources\ShaderHashedNames.json" />
+     <None Remove="Resources\MogKeyPool.bin" />
+-    <EmbeddedResource Include="Resources\MogKeyPool.bin" />
+   </ItemGroup>
+ 
+   <PropertyGroup>
+diff --git a/CUE4Parse/Globals.cs b/CUE4Parse/Globals.cs
+index 3b77550..f3e221a 100644
+--- a/CUE4Parse/Globals.cs
++++ b/CUE4Parse/Globals.cs
+@@ -12,4 +12,27 @@ public static class Globals
+     public static bool LogVfsMounts = true;
+     public static bool FatalObjectSerializationErrors = false;
+     public static bool WarnMissingImportPackage = true;
++
++    // Daevas of E-Day: read custom-serialized data (meshes, textures, audio) from unversioned packages
++    // without a .usmap by locating where the unknown properties end.
++    public static bool AllowMissingMappings = false;
++    [System.ThreadStatic] public static long SkipPropertiesTo;
++    [System.ThreadStatic] public static byte[]? LastMappinglessBytes;
++    [System.ThreadStatic] public static string? LastMappinglessError;
++    [System.ThreadStatic] public static object? PartialRenderData;
++    public static bool MappinglessDebug = System.Environment.GetEnvironmentVariable("DAEVAS_DEBUG") == "1";
++    // Clears what a failed attempt left on the object; decides whether a throwing attempt still read what's needed.
++    public static System.Action<UE4.Assets.Exports.UObject>? MappinglessReset;
++    public static System.Func<UE4.Assets.Exports.UObject, bool>? MappinglessAcceptPartial;
++    // A reader of its own for an object (archive, export start, export end); true when it handled the object.
++    public static System.Func<UE4.Assets.Exports.UObject, UE4.Assets.Readers.FAssetArchive, long, long, bool>? MappinglessCustom;
++    // Which objects are worth the search; the rest are left with no data.
++    public static System.Func<UE4.Assets.Exports.UObject, bool>? MappinglessFilter;
++    // Cheap check of the bytes at a candidate end-of-properties position (the archive is positioned there).
++    public static System.Func<UE4.Assets.Exports.UObject, UE4.Assets.Readers.FAssetArchive, bool>? MappinglessPrecheck;
++}
++
++public class NoMappingsException(long headerEnd) : System.Exception("unversioned properties without mappings")
++{
++    public long HeaderEnd { get; } = headerEnd;
+ }
+diff --git a/CUE4Parse/UE4/Assets/AbstractUePackage.cs b/CUE4Parse/UE4/Assets/AbstractUePackage.cs
+index b0f4285..c83ab39 100644
+--- a/CUE4Parse/UE4/Assets/AbstractUePackage.cs
++++ b/CUE4Parse/UE4/Assets/AbstractUePackage.cs
+@@ -29,7 +29,7 @@ public bool CanDeserialize
+     {
+         get
+         {
+-            if (HasFlags(EPackageFlags.PKG_UnversionedProperties) && Mappings is null)
++            if (HasFlags(EPackageFlags.PKG_UnversionedProperties) && Mappings is null && !Globals.AllowMissingMappings)
+                 throw new MappingException("Package has unversioned properties but mapping file is missing, can't serialize");
+             return true;
+         }
+@@ -79,11 +79,86 @@ public UObject ConstructObject(ResolvedObject? struc, IPackage? owner = null, EO
+         return obj;
+     }
+ 
++    // Daevas of E-Day: without mappings the unversioned property block can't be sized, so try each
++    // position where it could end and keep the one where the object's own data reads to exactly validPos.
++    private static void DeserializeObjectWithoutMappings(UObject obj, FAssetArchive Ar, long serialOffset, long validPos)
++    {
++        if (Globals.MappinglessFilter is { } filter && !filter(obj)) { Ar.Position = validPos; return; }
++        if (Globals.MappinglessCustom is { } custom && custom(obj, Ar, serialOffset, validPos)) { Ar.Position = validPos; return; }
++        long start;
++        try
++        {
++            Globals.SkipPropertiesTo = -1;
++            var first = (FAssetArchive) Ar.Clone();
++            first.Position = serialOffset;
++            obj.Deserialize(first, validPos);
++            if (first.Position == validPos) { Ar.Position = validPos; return; }
++            start = validPos;
++        }
++        catch (NoMappingsException e) { start = e.HeaderEnd; }
++        catch { start = validPos; }
++
++        var isCdo = obj.Flags.HasFlag(EObjectFlags.RF_ClassDefaultObject);
++        var probe = (FAssetArchive) Ar.Clone();
++        for (var c = start; c <= validPos - (isCdo ? 0 : 4); c++)
++        {
++            if (!isCdo)
++            {
++                probe.Position = c;
++                var hasGuid = probe.Read<int>();
++                if (hasGuid is not (0 or 1)) continue;
++            }
++            if (Globals.MappinglessPrecheck is { } precheck)
++            {
++                probe.Position = c;
++                try { if (!precheck(obj, probe)) continue; } catch { continue; }
++            }
++            Globals.MappinglessReset?.Invoke(obj);
++            var attempt = (FAssetArchive) Ar.Clone();
++            bool accepted;
++            try
++            {
++                Globals.SkipPropertiesTo = c;
++                attempt.Position = serialOffset;
++                obj.Deserialize(attempt, validPos);
++                accepted = attempt.Position == validPos;
++                if (!accepted) Globals.LastMappinglessError = $"ended at {attempt.Position - validPos} from export end";
++            }
++            catch (Exception e)
++            {
++                Globals.LastMappinglessError = e.Message;
++                // The data we came for may already be read even if a game-specific tail is not understood.
++                accepted = Globals.MappinglessAcceptPartial?.Invoke(obj) == true;
++                if (Globals.MappinglessDebug && c - serialOffset < 400)
++                {
++                    probe.Position = c - 32;
++                    Console.WriteLine("    bytes@-32: " + Convert.ToHexString(probe.ReadBytes(200)));
++                }
++                if (Globals.MappinglessDebug)
++                    Console.WriteLine($"    cand {c - serialOffset}/{validPos - serialOffset}: {e.GetType().Name} {e.Message.Split('\n')[0]} at {attempt.Position - serialOffset} | {e.StackTrace?.Split('\n').FirstOrDefault()?.Trim()} partial={accepted}");
++            }
++            if (accepted)
++            {
++                probe.Position = c;
++                Globals.LastMappinglessBytes = probe.ReadBytes((int) Math.Min(48, validPos - c));
++                Ar.Position = validPos;
++                return;
++            }
++        }
++        Globals.MappinglessReset?.Invoke(obj);
++        Ar.Position = validPos;
++    }
++
+     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+     protected void DeserializeObject(UObject obj, FAssetArchive Ar, long serialSize)
+     {
+         var serialOffset = Ar.Position;
+         var validPos = serialOffset + serialSize;
++        if (Globals.AllowMissingMappings && Mappings is null && HasFlags(EPackageFlags.PKG_UnversionedProperties) && serialSize > 0)
++        {
++            DeserializeObjectWithoutMappings(obj, Ar, serialOffset, validPos);
++            return;
++        }
+         try
+         {
+             if (serialSize == 0) return; // Empty Export
+diff --git a/CUE4Parse/UE4/Assets/Exports/FastGeoStreaming/FFastGeoInstancedStaticMeshComponent.cs b/CUE4Parse/UE4/Assets/Exports/FastGeoStreaming/FFastGeoInstancedStaticMeshComponent.cs
+index 14dd2b9..0afbf13 100644
+--- a/CUE4Parse/UE4/Assets/Exports/FastGeoStreaming/FFastGeoInstancedStaticMeshComponent.cs
++++ b/CUE4Parse/UE4/Assets/Exports/FastGeoStreaming/FFastGeoInstancedStaticMeshComponent.cs
+@@ -23,6 +23,9 @@ public class FFastGeoInstancedStaticMeshComponent : FFastGeoStaticMeshComponentB
+     public FBox NavigationBounds;
+     public FCompressedSpatialHashItem[] SpatialHashes;
+     public float[] PerInstanceRandomIDs;
++    /// Gears of War: E-Day keeps the instance transforms in its own bulk array (Daevas of E-Day reads it): raw elements and their size.
++    public byte[]? GearsInstanceData;
++    public int GearsInstanceElementSize;
+ 
+     public FFastGeoInstancedStaticMeshComponent(FFastGeoArchive Ar) : base(Ar)
+     {
+@@ -32,7 +35,13 @@ public FFastGeoInstancedStaticMeshComponent(FFastGeoArchive Ar) : base(Ar)
+         };
+ 
+         // i think it's FMatrix3x4, where 3x3 is scale and rotation, and last row is translation
+-        if (Ar.Game is GAME_GearsofWarEDay) Ar.SkipBulkArrayData();
++        if (Ar.Game is GAME_GearsofWarEDay)
++        {
++            // Daevas of E-Day: keep the bulk array instead of skipping it (element size, count, elements)
++            GearsInstanceElementSize = Ar.Read<int>();
++            var count = Ar.Read<int>();
++            GearsInstanceData = Ar.ReadBytes(GearsInstanceElementSize * count);
++        }
+ 
+         if (bUseHighPrecisionPerInstanceSMData)
+         {
+diff --git a/CUE4Parse/UE4/Assets/Exports/StaticMesh/FStaticMeshRenderData.cs b/CUE4Parse/UE4/Assets/Exports/StaticMesh/FStaticMeshRenderData.cs
+index 801b666..a8eb8ec 100644
+--- a/CUE4Parse/UE4/Assets/Exports/StaticMesh/FStaticMeshRenderData.cs
++++ b/CUE4Parse/UE4/Assets/Exports/StaticMesh/FStaticMeshRenderData.cs
+@@ -62,6 +62,7 @@ public FStaticMeshRenderData(FAssetArchive Ar)
+         else
+         {
+             LODs = Ar.ReadArray(() => new FStaticMeshLODResources(Ar));
++            if (Globals.AllowMissingMappings) Globals.PartialRenderData = this; // Daevas of E-Day
+             if (Ar.Game < GAME_UE4_0) return;
+         }
+ 
+diff --git a/CUE4Parse/UE4/Assets/Exports/UObject.cs b/CUE4Parse/UE4/Assets/Exports/UObject.cs
+index 309b47a..a2c3ada 100644
+--- a/CUE4Parse/UE4/Assets/Exports/UObject.cs
++++ b/CUE4Parse/UE4/Assets/Exports/UObject.cs
+@@ -126,7 +126,17 @@ public UObject(List<FPropertyTag> properties)
+ 
+     public virtual void Deserialize(FAssetArchive Ar, long validPos)
+     {
+-        if (Ar.HasUnversionedProperties)
++        if (Ar.HasUnversionedProperties && Globals.AllowMissingMappings && Ar.Owner?.Mappings is null)
++        {
++            var header = new FUnversionedHeader(Ar);
++            Properties = [];
++            if (header.HasValues)
++            {
++                if (Globals.SkipPropertiesTo < Ar.Position) throw new NoMappingsException(Ar.Position);
++                Ar.Position = Globals.SkipPropertiesTo;
++            }
++        }
++        else if (Ar.HasUnversionedProperties)
+         {
+             if (Class == null)
+                 throw new ParserException(Ar, "Found unversioned properties but object does not have a class");

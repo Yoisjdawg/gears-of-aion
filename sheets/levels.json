@@ -1,0 +1,161 @@
+{
+  "sheet": "levels",
+  "about": "XP curve. Kills give XP (enemies.xp); reaching xpToNext levels you up, which raises HP/MP (classes) and unlocks or ranks up skills (skills.unlockLevel, skills.rankLevels).",
+  "columns": {
+    "level": "key",
+    "xpToNext": "XP needed to reach the next level (0 = max level)",
+    "title": "shown on level-up"
+  },
+  "rows": [
+    {
+      "level": 1,
+      "xpToNext": 100,
+      "title": "Daeva Initiate"
+    },
+    {
+      "level": 2,
+      "xpToNext": 160,
+      "title": "Daeva Initiate"
+    },
+    {
+      "level": 3,
+      "xpToNext": 230,
+      "title": "Daeva Adept"
+    },
+    {
+      "level": 4,
+      "xpToNext": 310,
+      "title": "Daeva Adept"
+    },
+    {
+      "level": 5,
+      "xpToNext": 400,
+      "title": "Daeva Veteran"
+    },
+    {
+      "level": 6,
+      "xpToNext": 500,
+      "title": "Daeva Veteran"
+    },
+    {
+      "level": 7,
+      "xpToNext": 620,
+      "title": "Daeva Champion"
+    },
+    {
+      "level": 8,
+      "xpToNext": 760,
+      "title": "Daeva Champion"
+    },
+    {
+      "level": 9,
+      "xpToNext": 920,
+      "title": "Daeva Hero"
+    },
+    {
+      "level": 10,
+      "xpToNext": 1050,
+      "title": "Ascended Daeva"
+    },
+    {
+      "level": 11,
+      "xpToNext": 1200,
+      "title": "Ascended Daeva"
+    },
+    {
+      "level": 12,
+      "xpToNext": 1360,
+      "title": "Ascended Daeva"
+    },
+    {
+      "level": 13,
+      "xpToNext": 1560,
+      "title": "Ascended Daeva"
+    },
+    {
+      "level": 14,
+      "xpToNext": 1770,
+      "title": "Ascended Daeva"
+    },
+    {
+      "level": 15,
+      "xpToNext": 2020,
+      "title": "Archon"
+    },
+    {
+      "level": 16,
+      "xpToNext": 2300,
+      "title": "Archon"
+    },
+    {
+      "level": 17,
+      "xpToNext": 2630,
+      "title": "Archon"
+    },
+    {
+      "level": 18,
+      "xpToNext": 3000,
+      "title": "Archon"
+    },
+    {
+      "level": 19,
+      "xpToNext": 3410,
+      "title": "Archon"
+    },
+    {
+      "level": 20,
+      "xpToNext": 3890,
+      "title": "Exalted Archon"
+    },
+    {
+      "level": 21,
+      "xpToNext": 4440,
+      "title": "Exalted Archon"
+    },
+    {
+      "level": 22,
+      "xpToNext": 5060,
+      "title": "Exalted Archon"
+    },
+    {
+      "level": 23,
+      "xpToNext": 5770,
+      "title": "Exalted Archon"
+    },
+    {
+      "level": 24,
+      "xpToNext": 6570,
+      "title": "Exalted Archon"
+    },
+    {
+      "level": 25,
+      "xpToNext": 7490,
+      "title": "Empyrean Lord"
+    },
+    {
+      "level": 26,
+      "xpToNext": 8540,
+      "title": "Empyrean Lord"
+    },
+    {
+      "level": 27,
+      "xpToNext": 9740,
+      "title": "Empyrean Lord"
+    },
+    {
+      "level": 28,
+      "xpToNext": 11100,
+      "title": "Empyrean Lord"
+    },
+    {
+      "level": 29,
+      "xpToNext": 12660,
+      "title": "Empyrean Lord"
+    },
+    {
+      "level": 30,
+      "xpToNext": 0,
+      "title": "Empyrean Lord"
+    }
+  ]
+}

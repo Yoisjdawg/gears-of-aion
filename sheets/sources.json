@@ -1,0 +1,19 @@
+{
+  "sheet": "sources",
+  "about": "Hooks into the two games: every file the mashup reads from the player's own installs. Nothing here is copied or shipped.",
+  "columns": {
+    "id": "key",
+    "game": "custom-gears-of-war-e-day | custom-aion-2",
+    "path": "path inside that game's folder",
+    "reader": "how it's read",
+    "usedFor": "what the mashup does with it",
+    "required": "the game won't start without it"
+  },
+  "rows": [
+    { "id": "gears-paks", "game": "custom-gears-of-war-e-day", "path": "FairlightConcept/Content/Paks", "reader": "Daevas.Gears (CUE4Parse + ooz, read-only)", "usedFor": "weapons.parts and weapons.texture", "required": true },
+    { "id": "gears-characters", "game": "custom-gears-of-war-e-day", "path": "FairlightConcept/Content/Paks", "reader": "Daevas.Gears LoadSkinned + FindAlbedo (skeletal meshes, skeletons, colour textures)", "usedFor": "characters.parts (player and Locust models)", "required": true },
+    { "id": "gears-arena", "game": "custom-gears-of-war-e-day", "path": "FairlightConcept/Content/Paks", "reader": "Daevas.Gears LoadMesh + FindAlbedo (static meshes, material order, colour textures)", "usedFor": "arena.mesh and the arena ground texture", "required": true },
+    { "id": "gears-sounds", "game": "custom-gears-of-war-e-day", "path": "FairlightConcept/Content/Paks", "reader": "Daevas.Gears LoadEventSounds (Wwise event imports -> media .ubulk -> RIFF PCM)", "usedFor": "sounds.event", "required": false },
+    { "id": "aion-splash", "game": "custom-aion-2", "path": "Aion2/Content/Splash/Splash.bmp", "reader": "raylib LoadImage (BMP)", "usedFor": "title and class-select background", "required": true }
+  ]
+}

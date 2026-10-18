@@ -1,0 +1,209 @@
+{
+  "sheet": "systems",
+  "about": "Game systems and their tuning. Each row is one system the code implements.",
+  "columns": {
+    "id": "key",
+    "what": "what the system does",
+    "keys": "player controls it uses",
+    "params": "tuning values"
+  },
+  "rows": [
+    {
+      "id": "movement",
+      "what": "Third-person movement with a roadie run and cover-height walls",
+      "keys": "WASD, Shift sprint, mouse look",
+      "params": {
+        "sprintMultiplier": 1.6,
+        "mouseSensitivity": 0.0025,
+        "cameraDistance": 3.1,
+        "cameraHeight": 2.05,
+        "shoulderOffset": 1.05
+      }
+    },
+    {
+      "id": "guns",
+      "what": "Fire the held Gears weapon at the crosshair, reload (see active-reload), switch. Turned off for now (enabled false): left mouse / RT is the class basic attack instead",
+      "keys": "Left mouse fire, R reload, Q next gun, F1-F4 pick gun",
+      "params": {
+        "enabled": false,
+        "headHeightFraction": 0.85
+      }
+    },
+    {
+      "id": "hotbar",
+      "what": "AION-style skill bar: 8 slots with cooldown sweeps, MP cost, locked slots, chain skills and cast bars",
+      "keys": "1-8 (pad: D-pad, LT + D-pad for 5-8)",
+      "params": {
+        "slotSize": 64,
+        "slotGap": 8
+      }
+    },
+    {
+      "id": "skill-kinds",
+      "what": "strike: cone in front; shot: aimed target; nova: around you; blast: at aim point; dot: aimed target over time; stun: aimed or nearest in front; dash: move forward hitting what you pass; heal; buff: +% damage; shield: absorbs damage; aura: damage per second around you",
+      "keys": "1-4",
+      "params": {
+        "dotTicksPerSecond": 2,
+        "auraTicksPerSecond": 1
+      }
+    },
+    {
+      "id": "xp",
+      "what": "Kills give XP; level-ups raise HP and MP, unlock and rank up skills, full heal",
+      "keys": "none",
+      "params": {
+        "maxLevel": 30
+      }
+    },
+    {
+      "id": "damage-numbers",
+      "what": "AION-style floating numbers: white for normal, gold and larger for crits, green for heals, blue for shield absorbs, red for damage you take",
+      "keys": "none",
+      "params": {
+        "riseSpeed": 1.4,
+        "lifetime": 1.1,
+        "critScale": 1.6
+      }
+    },
+    {
+      "id": "city",
+      "what": "The battleground: Gears of War: E-Day's Siege Downtown map, read from the player's install (World Partition cells, every FastGeo static mesh and instance), baked into chunks around the centre point, with colliders for the pieces that stand on the street. If it can't be read, the fort arena on the arena sheet is used.",
+      "keys": "none",
+      "params": {
+        "enabled": true,
+        "name": "Downtown",
+        "map": "Fairlight/Maps/Fairlight_World/Fairlight_Siege_Downtown_WP",
+        "cells": [
+          "MainGrid_L0_X-1_Y-3",
+          "MainGrid_L0_X-1_Y-3_d175F5ED0",
+          "MainGrid_L0_X-1_Y-2",
+          "MainGrid_L0_X-1_Y-2_d175F5ED0",
+          "MainGrid_L0_X-1_Y-1",
+          "MainGrid_L0_X-1_Y-1_d175F5ED0",
+          "MainGrid_L0_X0_Y-3",
+          "MainGrid_L0_X0_Y-3_d175F5ED0",
+          "MainGrid_L0_X0_Y-2",
+          "MainGrid_L0_X0_Y-2_d175F5ED0",
+          "MainGrid_L0_X0_Y-1",
+          "MainGrid_L0_X0_Y-1_d175F5ED0",
+          "MainGrid_L0_X1_Y-3",
+          "MainGrid_L0_X1_Y-3_d175F5ED0",
+          "MainGrid_L0_X1_Y-2",
+          "MainGrid_L0_X1_Y-2_d175F5ED0",
+          "MainGrid_L0_X1_Y-1",
+          "MainGrid_L0_X1_Y-1_d175F5ED0",
+          "MainGrid_L1_X-1_Y-1",
+          "MainGrid_L1_X-1_Y-1_d175F5ED0",
+          "MainGrid_L1_X0_Y-1",
+          "MainGrid_L0_X-1_Y-1_d34B7FC44",
+          "MainGrid_L0_X-1_Y-2_d34B7FC44",
+          "MainGrid_L0_X-1_Y-3_d34B7FC44",
+          "MainGrid_L0_X0_Y-1_d34B7FC44",
+          "MainGrid_L0_X0_Y-2_d34B7FC44",
+          "MainGrid_L0_X1_Y-1_d34B7FC44",
+          "MainGrid_L0_X1_Y-2_d34B7FC44"
+        ],
+        "centerX": 0.0,
+        "centerY": -255.0,
+        "groundZ": 228.3,
+        "drawRadius": 120.0,
+        "playHalf": 55,
+        "lod": 0,
+        "chunk": 32.0,
+        "textureSize": 512,
+        "skip": "decal|_vfx|collision|blockout|proxy|volume|splinepolygontool",
+        "groundTexture": "Tiling/Textures/asphalt_damaged_01a_d",
+        "groundTileMetres": 4.0
+      }
+    },
+    {
+      "id": "arena",
+      "what": "Arena edge and floor: an invisible square boundary inside the Gears fort wall, floored with a tiled Gears ground texture",
+      "keys": "none",
+      "params": {
+        "half": 30,
+        "groundTexture": "Tiling/Textures/aggregate_concrete_01a_d",
+        "groundTiles": 14
+      }
+    },
+    {
+      "id": "active-reload",
+      "what": "Gears Active Reload: a reload shows a bar; press reload again in the white zone for an instant reload and a damage bonus, in the gold zone for an instant reload, anywhere else and the gun jams",
+      "keys": "R (or X) during a reload",
+      "params": {
+        "zoneStart": 0.36,
+        "goodWidth": 0.17,
+        "perfectWidth": 0.055,
+        "bonusDamagePct": 30,
+        "bonusSeconds": 6,
+        "jamSeconds": 1.3
+      }
+    },
+    {
+      "id": "chain-skills",
+      "what": "AION chain skills: when a skill lands, its chain skill replaces it in the same hotbar slot for a short window",
+      "keys": "the same skill key",
+      "params": {
+        "window": 3.5
+      }
+    },
+    {
+      "id": "target-lock",
+      "what": "AION target lock: lock the enemy in front; aimed skills go to it, strikes and blasts turn to it, and the target frame shows its HP and debuffs",
+      "keys": "Tab (pad: right stick click)",
+      "params": {
+        "range": 40
+      }
+    },
+    {
+      "id": "evasion",
+      "what": "AION evasion: a quick roll that dodges every hit while it lasts (shows Evade)",
+      "keys": "Space (pad: B)",
+      "params": {
+        "distance": 5.5,
+        "seconds": 0.55,
+        "cooldown": 1.5
+      }
+    },
+    {
+      "id": "flight",
+      "what": "AION Daeva flight: spread your wings and rise above the fight; flight time drains in the air and refills on the ground; Wretch claws can't reach you up there, but Drone and Boomer fire can",
+      "keys": "F (pad: Y)",
+      "params": {
+        "seconds": 12,
+        "height": 4.2,
+        "riseSpeed": 5,
+        "regenPerSecond": 1.5,
+        "speedMultiplier": 1.25
+      }
+    },
+    {
+      "id": "waves",
+      "what": "Solo campaign in one arena: waves from waves.json, a breather between waves, win after the last",
+      "keys": "Enter to start the next wave",
+      "params": {
+        "breatherSeconds": 6
+      }
+    },
+    {
+      "id": "test-mode",
+      "what": "Melty test runs: when %LOCALAPPDATA%/Melty/test/daevas-of-e-day.json exists, auto-pick a class, fight a wave with scripted inputs and report checks",
+      "keys": "none",
+      "params": {
+        "checks": [
+          "gears-characters-loaded",
+          "gears-arena-loaded",
+          "aion-splash-loaded",
+          "skill-cast",
+          "enemy-killed",
+          "level-up",
+          "chain-skill",
+          "evade",
+          "flight",
+          "crowd-control",
+          "basic-attack"
+        ]
+      }
+    }
+  ]
+}

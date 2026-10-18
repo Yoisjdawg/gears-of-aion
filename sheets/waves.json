@@ -1,0 +1,114 @@
+{
+  "sheet": "waves",
+  "about": "The solo campaign of the first version: one arena, waves of Locust. Clear the last wave to win.",
+  "columns": {
+    "wave": "key",
+    "name": "banner shown when it starts",
+    "wretch": "how many (enemies.id wretch)",
+    "drone": "how many (enemies.id drone)",
+    "boomer": "how many (enemies.id boomer)",
+    "hpScale": "enemy HP multiplier for this wave",
+    "ticker": "how many (enemies.id ticker)",
+    "reaver": "how many (enemies.id reaver)",
+    "extra": "more Locust as 'enemy:count' pairs (enemies.id), or none",
+    "boss": "a boss that bursts out partway through (enemies.id with special boss), or none"
+  },
+  "rows": [
+    {
+      "wave": 1,
+      "name": "First Contact",
+      "wretch": 4,
+      "drone": 0,
+      "boomer": 0,
+      "hpScale": 1.0,
+      "ticker": 0,
+      "reaver": 0,
+      "extra": "none",
+      "boss": "none"
+    },
+    {
+      "wave": 2,
+      "name": "Drones Dig In",
+      "wretch": 4,
+      "drone": 2,
+      "boomer": 0,
+      "hpScale": 1.0,
+      "ticker": 2,
+      "reaver": 0,
+      "extra": "wretch-armored:1",
+      "boss": "none"
+    },
+    {
+      "wave": 3,
+      "name": "The Vrak",
+      "wretch": 5,
+      "drone": 3,
+      "boomer": 1,
+      "hpScale": 1.1,
+      "ticker": 3,
+      "reaver": 0,
+      "extra": "grenadier:1",
+      "boss": "vrak"
+    },
+    {
+      "wave": 4,
+      "name": "Swarm",
+      "wretch": 10,
+      "drone": 4,
+      "boomer": 0,
+      "hpScale": 1.2,
+      "ticker": 5,
+      "reaver": 1,
+      "extra": "flooder:2 drone-shotgun:1",
+      "boss": "none"
+    },
+    {
+      "wave": 5,
+      "name": "Twin Boomers",
+      "wretch": 6,
+      "drone": 4,
+      "boomer": 2,
+      "hpScale": 1.3,
+      "ticker": 4,
+      "reaver": 1,
+      "extra": "drone-sniper:2 sporematron:1 rusher:2",
+      "boss": "none"
+    },
+    {
+      "wave": 6,
+      "name": "Emergence",
+      "wretch": 10,
+      "drone": 6,
+      "boomer": 3,
+      "hpScale": 1.35,
+      "ticker": 5,
+      "reaver": 2,
+      "extra": "seeder:1 grenadier:1 wretch-armored:2",
+      "boss": "corpser"
+    },
+    {
+      "wave": 7,
+      "name": "Scorched Earth",
+      "wretch": 9,
+      "drone": 6,
+      "boomer": 2,
+      "hpScale": 1.45,
+      "ticker": 6,
+      "reaver": 1,
+      "extra": "broodshifter:1 sporematron:1 drone-sniper:1 flooder:2 siegebreaker:1 rusher:2",
+      "boss": "vrak-scorched"
+    },
+    {
+      "wave": 8,
+      "name": "The Beast of the Hollow",
+      "wretch": 10,
+      "drone": 7,
+      "boomer": 3,
+      "hpScale": 1.55,
+      "ticker": 8,
+      "reaver": 2,
+      "extra": "wretch-armored:2 grenadier:2 drone-shotgun:1 seeder:1 siegebreaker:1",
+      "boss": "brumak"
+    }
+  ]
+}

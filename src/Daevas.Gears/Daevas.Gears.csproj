@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\.tools\CUE4Parse\CUE4Parse\CUE4Parse.csproj" />
+    <ProjectReference Include="..\..\..\.tools\CUE4Parse\CUE4Parse-Conversion\CUE4Parse-Conversion.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\native\ooz.dll" CopyToOutputDirectory="PreserveNewest" Link="ooz.dll" />
+    <None Include="..\..\native\CUE4Parse-Natives.dll" CopyToOutputDirectory="PreserveNewest" Link="CUE4Parse-Natives.dll" />
+    <None Include="..\..\native\vgmstream\*" CopyToOutputDirectory="PreserveNewest" LinkBase="vgmstream" />
+  </ItemGroup>
+</Project>
